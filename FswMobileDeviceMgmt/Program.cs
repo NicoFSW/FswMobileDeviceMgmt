@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices.ComTypes;
 
 namespace FswMobileDeviceMgmt
@@ -7,6 +8,20 @@ namespace FswMobileDeviceMgmt
     {
         static void Main(string[] args)
         {
+
+            List<MitarbeiterIn> mitarbeiterInnen = new List<MitarbeiterIn>();
+
+
+            MitarbeiterIn Nikole = new MitarbeiterIn();
+
+            Nikole.Kuerzel = "ifswnsc";
+            Nikole.Name = "Nikole Schumacher";
+            Nikole.Handy = "Iphone8";
+            Nikole.Handynummer = "0660 1254 889";
+            Nikole.Notebook = "203459";
+
+
+
             MitarbeiterIn wolfgang = new MitarbeiterIn();
             
             wolfgang.Kuerzel = "ifswwha";
@@ -44,19 +59,24 @@ namespace FswMobileDeviceMgmt
                 eingabe = Console.ReadLine();
 
 
-                if (eingabe == "Wolfgang")
+                if (eingabe.Equals("Wolfgang", StringComparison.InvariantCultureIgnoreCase))
                 {
                     wolfgang.WriteAllgemeineInfo();
                 }
 
 
-                else if (eingabe == "Peter")
+                else if (eingabe.Equals("Nikole", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    Nikole.WriteAllgemeineInfo();
+                }
+
+                else if (eingabe.Equals("Peter", StringComparison.InvariantCultureIgnoreCase))
                 {
                     peter.WriteAllgemeineInfo();
                 }
 
 
-                else if (eingabe == "Alexandra")
+                else if (eingabe.Equals("alexandra", StringComparison.InvariantCultureIgnoreCase))
                 {
                     alexandra.WriteAllgemeineInfo();
                 }
