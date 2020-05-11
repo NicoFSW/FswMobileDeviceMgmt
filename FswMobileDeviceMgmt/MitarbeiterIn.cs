@@ -10,29 +10,28 @@ namespace FswMobileDeviceMgmt
     {
         private string Name;
         private string Kuerzel = "Unbekannt";
-        private string Notebook;
-        private string Handy;
-        private string Handynummer;
         private string Durchwahl;
         private string TelefonVorwahl = "050 1234";
-        
-        // constructor
-        public MitarbeiterIn(string myName, string myKuerzel, string myHandy, string myHandynummer, string myDurchwahl, string myNotebook,string myTelefonVorwahl )
-        {
-            Name = myName;
-            Handy = myHandy;
-            Handynummer = myHandynummer;
-            Durchwahl = myDurchwahl;
-            Notebook = myNotebook;
-            TelefonVorwahl = myTelefonVorwahl;
+        private Handy MaHandy;
+        private NoteBook MaNoteBook;
 
-            if (myKuerzel.Length == 7 )
+        // constructor
+        public MitarbeiterIn(string Name, string Kuerzel, Handy MaHandy, NoteBook MaNoteBook, string Durchwahl, string TelefonVorwahl )
+        {
+            this.Name = Name;
+            this.Durchwahl = Durchwahl;
+            this.TelefonVorwahl = TelefonVorwahl;
+            this.MaHandy = MaHandy;
+            this.MaNoteBook = MaNoteBook;
+
+
+            if (Kuerzel.Length == 7 )
             {
-                Kuerzel = myKuerzel;
+                this.Kuerzel = Kuerzel;
             }
             else
             {
-                Console.WriteLine("Wrong Kuerzel: " + myKuerzel);
+                Console.WriteLine("Wrong Kuerzel: " + Kuerzel);
             }
         }
 
@@ -50,8 +49,10 @@ namespace FswMobileDeviceMgmt
         public void WriteAllgemeineInfo()
         {
 
-            Console.WriteLine("Kürzel: " + Kuerzel + "\nName: " + Name + "\nHandy: " + Handy + "\nHandynummer: " + Handynummer 
-                + "\nVorwahl: " +TelefonVorwahl  + "\nDurchwahl: " +Durchwahl + "\nNB: " + Notebook + "\n");
+            Console.WriteLine("Kürzel: " + Kuerzel + "\nName: " + Name);
+            MaHandy.WriteHandyInfo();
+            MaNoteBook.WriteNoteBookInfo();
+            Console.WriteLine("Vorwahl: " + TelefonVorwahl + "\nDurchwahl: " + Durchwahl ); 
 
         }
     }
