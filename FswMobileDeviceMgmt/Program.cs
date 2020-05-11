@@ -15,8 +15,15 @@ namespace FswMobileDeviceMgmt
                 (
                     new MitarbeiterIn
                      (
-                        "Nikole Schumacher", 
-                        "ifswnsc", 
+                        "ifswnsc",
+                        new Person
+                            (
+                            "Nikole Schumacher", 
+                            "45",
+                            "Wien",
+                            "3",
+                            "Guglgasse 23/3/60"
+                            ), 
                         new Handy
                             (
                                 "Iphone8",
@@ -26,9 +33,7 @@ namespace FswMobileDeviceMgmt
                             (
                                 "HP EliteBook",
                                 "203456"
-                            ),
-                        "11111",
-                        "010 1234"
+                            )
                     )
                  );
 
@@ -36,8 +41,15 @@ namespace FswMobileDeviceMgmt
                 (
                     new MitarbeiterIn
                     (
-                        "Wolfgang Hans",
                         "ifswwha",
+                        new Person
+                            (
+                            "Wolfgang Hans",
+                            "54",
+                            "Wien",
+                            "5",
+                            "Liebespaar 2/1/13"
+                            ),
                         new Handy
                             (
                                 "Iphone8",
@@ -47,19 +59,24 @@ namespace FswMobileDeviceMgmt
                             (
                                 "Dell",
                                 "203566"
-                            ),
-                        "22222", 
-                        "010 1234"
+                            )
                     )
                 );
 
-           
+
             mitarbeiterInnen.Add
                 (
                 new MitarbeiterIn
                     (
-                        "Peter Ludwig",
                         "ifswplu",
+                        new Person
+                        (
+                        "Peter Ludwig",
+                        "36",
+                        "NiederÖsterreich",
+                        "8",
+                        "Hofburg 3"
+                        ),
                         new Handy
                             (
                                 "Iphone6",
@@ -69,19 +86,24 @@ namespace FswMobileDeviceMgmt
                             (
                                 "Dell",
                                 "203778"
-                            ),
-                        "33333",
-                        "010 1234"
+                            )
                     )
                 );
 
-            
+
             mitarbeiterInnen.Add
                 (
                     new MitarbeiterIn
                     (
-                        "Alexandra Sabine",
                         "ifswasa",
+                        new Person
+                        (
+                        "Alexandra Sabine",
+                        "27",
+                        "Burgenland",
+                        "1",
+                        "Neusiedlersee 67"
+                        ),
                         new Handy
                             (
                             "IphoneSE",
@@ -91,9 +113,7 @@ namespace FswMobileDeviceMgmt
                             (
                                 "HP EliteBook",
                                 "203991"
-                            ),
-                        "44444",
-                        "010 1234"
+                            )
                     )
                 );
 
@@ -105,7 +125,7 @@ namespace FswMobileDeviceMgmt
             do
             {
 
-                Console.WriteLine("Please enter Name or \"exit\" \n");
+                Console.WriteLine("\nPlease enter Name or \"exit\" \n");
                 
                 eingabe = Console.ReadLine();
 

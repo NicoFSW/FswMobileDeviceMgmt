@@ -8,36 +8,33 @@ namespace FswMobileDeviceMgmt
 {
     public class MitarbeiterIn
     {
-        private string Name;
-        private string Kuerzel = "Unbekannt";
-        private string Durchwahl;
-        private string TelefonVorwahl = "050 1234";
+        private string Kuerzel;
         private Handy MaHandy;
         private NoteBook MaNoteBook;
+        private Person MaPerson;
 
         // constructor
-        public MitarbeiterIn(string Name, string Kuerzel, Handy MaHandy, NoteBook MaNoteBook, string Durchwahl, string TelefonVorwahl )
+        public MitarbeiterIn( string MaKuerzel, Person MaPerson, Handy MaHandy, NoteBook MaNoteBook )
         {
-            this.Name = Name;
-            this.Durchwahl = Durchwahl;
-            this.TelefonVorwahl = TelefonVorwahl;
+            this.Kuerzel = MaKuerzel;
+            this.MaPerson = MaPerson;
             this.MaHandy = MaHandy;
             this.MaNoteBook = MaNoteBook;
 
 
-            if (Kuerzel.Length == 7 )
+            /*if (Kuerzel.Length == 7 )
             {
                 this.Kuerzel = Kuerzel;
             }
             else
             {
                 Console.WriteLine("Wrong Kuerzel: " + Kuerzel);
-            }
+            }*/
         }
 
         public string GetName()
         {
-            return Name;
+            return MaPerson.GetPersonName();
         }
 
         public string GetKuerzel()
@@ -48,11 +45,10 @@ namespace FswMobileDeviceMgmt
 
         public void WriteAllgemeineInfo()
         {
-
-            Console.WriteLine("Kürzel: " + Kuerzel + "\nName: " + Name);
+            Console.WriteLine("Kuerzel: " + Kuerzel);
+            MaPerson.WritePersonInfo();
             MaHandy.WriteHandyInfo();
             MaNoteBook.WriteNoteBookInfo();
-            Console.WriteLine("Vorwahl: " + TelefonVorwahl + "\nDurchwahl: " + Durchwahl ); 
 
         }
     }
