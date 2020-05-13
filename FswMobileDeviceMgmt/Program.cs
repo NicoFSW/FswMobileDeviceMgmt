@@ -18,22 +18,45 @@ namespace FswMobileDeviceMgmt
                         "ifswnsc",
                         new Person
                             (
-                            "Nikole Schumacher", 
-                            "45",
-                            "Wien",
-                            "3",
-                            "Guglgasse 23/3/60"
-                            ), 
-                        new Handy
-                            (
-                                "Iphone8",
-                                "0660 1245 900"
-                            ), 
-                        new NoteBook
-                            (
-                                "HP EliteBook",
-                                "203456"
-                            )
+                                "Nikole Schumacher",
+                                "45",
+                                "Wien",
+                                "3",
+                                "Guglgasse 23/3/60"
+                            ),
+                        new List<Telefon>
+                            {
+
+                                new Telefon
+                                    (
+                                        "FestNetzTelefon",
+                                        "/",
+                                        "02 1245 900"
+                                    ),
+                                new Telefon
+                                    (
+                                        "MobilTelefon",
+                                        "Iphone8",
+                                        "0660 1245 900"
+                                    ),
+                            },
+
+                            new List<Computer> 
+                                {
+                                    new Computer
+                                        (
+                                            "Notebook",
+                                            "HP EliteBook",
+                                            "203456"
+                                        ),
+                                    new Computer
+                                        (
+                                            "Notebook",
+                                            "HP UltraBook",
+                                            "203463"
+                                        ),
+                                }
+
                     )
                  );
 
@@ -44,22 +67,36 @@ namespace FswMobileDeviceMgmt
                         "ifswwha",
                         new Person
                             (
-                            "Wolfgang Hans",
-                            "54",
-                            "Wien",
-                            "5",
-                            "Liebespaar 2/1/13"
+                                "Wolfgang Hans",
+                                "54",
+                                "Wien",
+                                "5",
+                                "Liebespaar 2/1/13"
                             ),
-                        new Handy
-                            (
-                                "Iphone8",
-                                "06650 7831 435"
-                            ), 
-                        new NoteBook
-                            (
-                                "Dell",
-                                "203566"
-                            )
+                        new List<Telefon>
+                        {
+                            new Telefon
+                                (
+                                    "FestNetzTelefon",
+                                    "/",
+                                    "02 1231 497"
+                                ),
+                            new Telefon
+                                (
+                                    "MobilTelefon",
+                                    "Iphone8",
+                                    "0660 1467 823"
+                                ),
+                            new Telefon
+                                (
+                                    "MobilTelefon",
+                                    "IphoneSE",
+                                    "0650 7542 556"
+                                )
+                        },
+                        new List<Computer>
+                            {
+                            }
                     )
                 );
 
@@ -71,22 +108,37 @@ namespace FswMobileDeviceMgmt
                         "ifswplu",
                         new Person
                         (
-                        "Peter Ludwig",
-                        "36",
-                        "NiederÖsterreich",
-                        "8",
-                        "Hofburg 3"
+                            "Peter Ludwig",
+                            "36",
+                            "NiederÖsterreich",
+                            "8",
+                            "Hofburg 3"
                         ),
-                        new Handy
-                            (
-                                "Iphone6",
-                                "0660 1546 767"
-                            ),
-                        new NoteBook
-                            (
-                                "Dell",
-                                "203778"
-                            )
+                        new List<Telefon>
+                            {
+                                new Telefon
+                                    (
+                                        "FestNetzTelefon",
+                                        "/",
+                                        "02 1546 767"
+                                    ),
+                                new Telefon
+                                    (
+                                        "MobilTelefon",
+                                        "Iphone6",
+                                        "0660 1546 767"
+                                    ),
+                            },
+
+                        new List<Computer>
+                            {
+                                new Computer
+                                    (
+                                        "Notebook",
+                                        "Dell",
+                                        "204476"
+                                    )
+                            }
                     )
                 );
 
@@ -98,22 +150,44 @@ namespace FswMobileDeviceMgmt
                         "ifswasa",
                         new Person
                         (
-                        "Alexandra Sabine",
-                        "27",
-                        "Burgenland",
-                        "1",
-                        "Neusiedlersee 67"
+                            "Alexandra Sabine",
+                            "27",
+                            "Burgenland",
+                            "1",
+                            "Neusiedlersee 67"
                         ),
-                        new Handy
-                            (
-                            "IphoneSE",
-                            "0650 1123 332"
-                            ),
-                        new NoteBook
-                            (
-                                "HP EliteBook",
-                                "203991"
-                            )
+                        
+                        new List<Telefon>
+                            {
+                                new Telefon
+                                    (
+                                        "FestNetzTelefon",
+                                        "/",
+                                        "02 1123 332"
+                                    ),
+                                new Telefon
+                                    (
+                                        "MobilTelefon",
+                                        "IphoneSE",
+                                        "0650 1123 332"
+                                    )
+                            },
+
+                        new List<Computer>
+                            {
+                                new Computer
+                                    (
+                                        "Notebook",
+                                        "HP EliteBook",
+                                        "204563"
+                                    ),
+                                new Computer
+                                    (
+                                        "Notebook",
+                                        "HP LightBook",
+                                        "205739"
+                                    )
+                            }
                     )
                 );
 
@@ -141,6 +215,7 @@ namespace FswMobileDeviceMgmt
                         // Console.WriteLine(ma.Name);
                         if (eingabe.Equals(ma.GetName(), StringComparison.InvariantCultureIgnoreCase) || eingabe.Equals(ma.GetKuerzel(), StringComparison.InvariantCultureIgnoreCase)) 
                         {
+                            Console.WriteLine("\n");
                             ma.WriteAllgemeineInfo();
                         }
                     }

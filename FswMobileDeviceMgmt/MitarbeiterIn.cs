@@ -9,17 +9,17 @@ namespace FswMobileDeviceMgmt
     public class MitarbeiterIn
     {
         private string Kuerzel;
-        private Handy MaHandy;
-        private NoteBook MaNoteBook;
+        private List<Telefon> MaTelefone;
+        private List<Computer> MaComputer;
         private Person MaPerson;
 
         // constructor
-        public MitarbeiterIn( string MaKuerzel, Person MaPerson, Handy MaHandy, NoteBook MaNoteBook )
+        public MitarbeiterIn( string MaKuerzel, Person MaPerson, List<Telefon> MaTelefone, List<Computer> MaComputer )
         {
             this.Kuerzel = MaKuerzel;
             this.MaPerson = MaPerson;
-            this.MaHandy = MaHandy;
-            this.MaNoteBook = MaNoteBook;
+            this.MaTelefone = MaTelefone;
+            this.MaComputer = MaComputer;
 
 
             /*if (Kuerzel.Length == 7 )
@@ -47,8 +47,15 @@ namespace FswMobileDeviceMgmt
         {
             Console.WriteLine("Kuerzel: " + Kuerzel);
             MaPerson.WritePersonInfo();
-            MaHandy.WriteHandyInfo();
-            MaNoteBook.WriteNoteBookInfo();
+            foreach (Telefon TEL in MaTelefone)
+            {
+                TEL.WriteTelefonInfo();
+            }
+
+            foreach (Computer CP in MaComputer)
+            {
+                CP.WriteComputerInfo();
+            }
 
         }
     }
