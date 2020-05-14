@@ -6,23 +6,23 @@ namespace FswMobileDeviceMgmt
     public class Telefon
     {
 
-        private string HandyMarke;
-        private string HandyNummer;
+        private string TelefonMarke;
+        private string TelefonNummer;
         private string TelefonTyp;
         
         //Constructor
 
-        public Telefon( string TelefonTyp, string HandyMarke, string HandyNummer)
+        public Telefon( string TelefonTyp, string TelefonMarke, string TelefonNummer)
         {
             this.TelefonTyp = TelefonTyp;
-            this.HandyMarke = HandyMarke;
-            this.HandyNummer = HandyNummer;
+            this.TelefonMarke = TelefonMarke;
+            this.TelefonNummer = TelefonNummer;
 
         }
 
         public void WriteTelefonInfo()
         {
-            Console.WriteLine("\nTelefonTyp: " + TelefonTyp + "\nTelefonTyp: " + HandyMarke + "\nTelefonnummer: " + HandyNummer);
+            Console.WriteLine("\nTelefonTyp: " + TelefonTyp + "\nTelefonMarke: " + TelefonMarke + "\nTelefonnummer: " + TelefonNummer);
 
         }
     }

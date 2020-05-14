@@ -6,22 +6,23 @@ namespace FswMobileDeviceMgmt
 {
     public class Computer
     {
-        private string ComputerArt;
         private string ComputerTyp;
-        private string NoteBookNummer;
+        private string ComputerMarke;
+        private string ComputerNummer;
 
 
         //Constructor
 
-        public Computer( string ComputerArt, string ComputerTyp, string CopmuterNummer)
+        public Computer( string ComputerTyp, string ComputerMarke, string ComputerNummer)
         {
             this.ComputerTyp = ComputerTyp;
-            this.NoteBookNummer = CopmuterNummer;
+            this.ComputerMarke = ComputerMarke;
+            this.ComputerNummer = ComputerNummer;
         }
 
         public void WriteComputerInfo()
         {
-            Console.WriteLine( "\nComputerArt: " + ComputerArt +"\nComputerTyp: " + ComputerTyp + "\nComputerNummer: " + NoteBookNummer);
+            Console.WriteLine( "\nComputerTyp: " + ComputerTyp +"\nComputerMarke: " + ComputerMarke + "\nComputerNummer: " + ComputerNummer);
 
         }
     }
