@@ -20,10 +20,16 @@ namespace FswMobileDeviceMgmt
                             (
                                 "Nikole Schumacher",
                                 "45",
-                                "Wien",
-                                "3",
-                                "Guglgasse 23/3/60"
+                            
+                                new Adresse
+                                    (
+                                        "Wien",
+                                        "3",
+                                        "Guglgasse 1"
+                                    )
+                                    
                             ),
+
                         new List<Telefon>
                             {
 
@@ -69,9 +75,13 @@ namespace FswMobileDeviceMgmt
                             (
                                 "Wolfgang Hans",
                                 "54",
-                                "Wien",
-                                "5",
-                                "Liebespaar 2/1/13"
+
+                                 new Adresse
+                                    (
+                                        "Wien",
+                                        "5",
+                                        "Liebespaar 2/1/13"
+                                    )
                             ),
                         new List<Telefon>
                         {
@@ -110,9 +120,13 @@ namespace FswMobileDeviceMgmt
                         (
                             "Peter Ludwig",
                             "36",
-                            "NiederÖsterreich",
-                            "8",
-                            "Hofburg 3"
+                            
+                            new Adresse
+                                (
+                                    "NiederÖsterreich",
+                                    "8",
+                                    "Hofburg 3"
+                                )
                         ),
                         new List<Telefon>
                             {
@@ -152,11 +166,16 @@ namespace FswMobileDeviceMgmt
                         (
                             "Alexandra Sabine",
                             "27",
-                            "Burgenland",
-                            "1",
-                            "Neusiedlersee 67"
+                            null
+
+                        /*new Adresse
+                            (
+                                "",
+                                "",
+                                ""
+                            )*/
                         ),
-                        
+
                         new List<Telefon>
                             {
                                 new Telefon

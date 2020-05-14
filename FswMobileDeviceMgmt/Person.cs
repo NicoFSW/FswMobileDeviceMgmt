@@ -8,27 +8,30 @@ namespace FswMobileDeviceMgmt
     {
         private string Name;
         private string Alter;
-        private string Adresse;
-        private string Bezirk;
-        private string BundesLand;
-
+        private Adresse PeAdresse;
 
         //Constructor
 
-        public Person ( string Name, string Alter, string BundesLand, string Bezirk,string Adresse)
+        public Person ( string Name, string Alter, Adresse PeAdresse )
         {
             this.Name = Name;
             this.Alter = Alter;
-            this.Adresse = Adresse;
-            this.BundesLand = BundesLand;
-            this.Bezirk = Bezirk;
-
+            this.PeAdresse = PeAdresse;
         }
 
         public void WritePersonInfo()
         {
-            Console.WriteLine( "Name: " + Name + "\nAlter: " + Alter 
-                               + "\nStadt: " + BundesLand + "\nBezirk: " + Bezirk+ "\nAdresse: " + Adresse );
+            Console.WriteLine("Name: " + Name + "\nAlter: " + Alter );
+
+            if (PeAdresse != null)
+            {
+                PeAdresse.WriteAdresseInfo();
+            }
+
+            else 
+            {
+                Console.WriteLine("No Adress Added");
+            }
 
         }
 
