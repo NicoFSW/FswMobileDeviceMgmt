@@ -30,7 +30,7 @@ namespace FswMobileDeviceMgmt
 
             else 
             {
-                Console.WriteLine("No Adress Added");
+                Console.WriteLine("\nNo Adress Added" + "\n");
             }
 
         }
