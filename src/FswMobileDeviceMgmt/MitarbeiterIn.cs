@@ -58,5 +58,31 @@ namespace FswMobileDeviceMgmt
             }
 
         }
+
+        public int GeraeteAnzahl()
+        {
+            int anzahlComputer = 0;
+
+            if (MaComputer != null)
+            {
+                foreach (Computer cp in MaComputer)
+                {
+                    anzahlComputer += 1;
+
+                }
+            }
+
+
+            int anzahlTelefon = 0;
+            if (MaTelefone != null)
+            {
+                foreach (Telefon TEL in MaTelefone)
+                {
+                    anzahlTelefon += 1;
+                }
+            }
+
+            return anzahlComputer + anzahlTelefon;
+        }
     }
 }

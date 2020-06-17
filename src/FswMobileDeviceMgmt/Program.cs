@@ -11,24 +11,36 @@ namespace FswMobileDeviceMgmt
 
             List<MitarbeiterIn> mitarbeiterInnen = new List<MitarbeiterIn>();
 
-            mitarbeiterInnen.Add
+
+            string MyMAKuerzel = "ifswnsc";
+            string MyMAName = "nikole schumacher";
+            string MyMAALter = "45";
+            string MyMAStadt = "Wien";
+            string MyMABezirk = "3";
+            string MyMAStrasse = "Guglgasse 1";
+            //string MyMAStrasse = new String("Guglgasse 1");
+
+            Adresse MyMAAdresse = new Adresse
                 (
-                    new MitarbeiterIn
+                MyMAStadt,
+                MyMABezirk,
+                MyMAStrasse
+                );
+            Person PersonName = new Person
+            (
+             MyMAName,
+             MyMAALter,
+             MyMAAdresse
+            );
+            
+
+
+
+            MitarbeiterIn MyMA = new MitarbeiterIn
                      (
-                        "ifswnsc",
-                        new Person
-                            (
-                                "Nikole Schumacher",
-                                "45",
-                            
-                                new Adresse
-                                    (
-                                        "Wien",
-                                        "3",
-                                        "Guglgasse 1"
-                                    )
-                                    
-                            ),
+                        MyMAKuerzel,
+                        PersonName,
+                
 
                         new List<Telefon>
                             {
@@ -47,7 +59,7 @@ namespace FswMobileDeviceMgmt
                                     ),
                             },
 
-                            new List<Computer> 
+                            new List<Computer>
                                 {
                                     new Computer
                                         (
@@ -63,7 +75,11 @@ namespace FswMobileDeviceMgmt
                                         ),
                                 }
 
-                    )
+                    );
+
+            mitarbeiterInnen.Add
+                (
+                    MyMA
                  );
 
             mitarbeiterInnen.Add
