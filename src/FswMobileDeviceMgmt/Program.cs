@@ -249,11 +249,12 @@ namespace FswMobileDeviceMgmt
                         {
                             Console.WriteLine("\n");
                             ma.WriteAllgemeineInfo();
+                            break;
                         }
                     }
                 }
 
-                if (eingabe == 2)
+                else if (eingabe == 2)
                 {
                     Console.WriteLine("Please enter Kuerzel");
                     Kuerzel = Console.ReadLine();
@@ -269,10 +270,47 @@ namespace FswMobileDeviceMgmt
                 }
 
 
-                if (eingabe.Equals(3))
+                else if (eingabe.Equals(3))
                 {
                     break;
                 }
+
+
+                //switch (eingabe)
+                //{
+                //    case 1:
+                //        Console.WriteLine("Please enter full Name");
+                //        Name = Console.ReadLine();
+                //        foreach (MitarbeiterIn ma in mitarbeiterInnen)
+                //        {
+                //            //Console.WriteLine(ma.Name);
+                //            if (Name.Equals(ma.GetName(), StringComparison.InvariantCultureIgnoreCase))
+                //            {
+                //                Console.WriteLine("\n");
+                //                ma.WriteAllgemeineInfo();
+                //                break;
+                //            }
+                //        }
+                //        break;
+                //    case 2:
+                //        Console.WriteLine("Please enter Kuerzel");
+                //        Kuerzel = Console.ReadLine();
+                //        foreach (MitarbeiterIn ma in mitarbeiterInnen)
+                //        {
+                //            //Console.WriteLine(ma.Name);
+                //            if (Kuerzel.Equals(ma.GetKuerzel(), StringComparison.InvariantCultureIgnoreCase))
+                //            {
+                //                Console.WriteLine("\n");
+                //                ma.WriteAllgemeineInfo();
+                //            }
+                //        }
+                //        break;
+                //    case 3:
+                //        break;
+                //    default:
+                //        Console.WriteLine("Default case");
+                //        break;
+                //}
 
                 //else
                 //{
