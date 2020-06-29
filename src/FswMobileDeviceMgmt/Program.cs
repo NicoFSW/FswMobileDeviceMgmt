@@ -228,64 +228,64 @@ namespace FswMobileDeviceMgmt
 
 
             //eingabe
-            string eingabe;
-            
+            int eingabe;
+            string Name, Kuerzel;
             
             do
             {
 
-                Console.WriteLine("\nPlease enter Name or \"exit\" \n");
+                Console.WriteLine("\nPlease press 1 for entering the name\nPlease press 2 for entering the Kuerzel\nPlease press 3 for EXIT\n");
                 
-                eingabe = Console.ReadLine();
+                eingabe = Convert.ToInt32(Console.ReadLine());
 
-                if (eingabe.Equals("Exit", StringComparison.InvariantCultureIgnoreCase))
+                if (eingabe == 1)
                 {
-                    break;
-                }
-
-                else
-                {
+                    Console.WriteLine("Please enter full Name");
+                    Name = Console.ReadLine();
                     foreach (MitarbeiterIn ma in mitarbeiterInnen)
                     {
-                         //Console.WriteLine(ma.Name);
-                        if (eingabe.Equals(ma.GetName(), StringComparison.InvariantCultureIgnoreCase) || eingabe.Equals(ma.GetKuerzel(), StringComparison.InvariantCultureIgnoreCase)) 
+                        //Console.WriteLine(ma.Name);
+                        if (Name.Equals(ma.GetName(), StringComparison.InvariantCultureIgnoreCase))
                         {
                             Console.WriteLine("\n");
                             ma.WriteAllgemeineInfo();
                         }
                     }
-
-
-                    //for (int index = 0; index < mitarbeiterInnen.Count; index += 1)
-                    //{
-                    //    var ma = mitarbeiterInnen[index];
-                    //    // Console.WriteLine(ma.Name);
-                    //    if (eingabe.Equals(ma.GetName(), StringComparison.InvariantCultureIgnoreCase) || eingabe.Equals(ma.GetKuerzel(), StringComparison.InvariantCultureIgnoreCase))
-                    //    {
-                    //        Console.WriteLine("\n");
-                    //        ma.WriteAllgemeineInfo();
-                    //    }
-                    //}
-
-                    /* int index = 100;
-                     while (index < mitarbeiterInnen.Count)
-                     {
-                         if (index < mitarbeiterInnen.Count)
-                         {
-
-                             var ma = mitarbeiterInnen[index];
-                             // Console.WriteLine(ma.Name);
-                             if (eingabe.Equals(ma.GetName(), StringComparison.InvariantCultureIgnoreCase) || eingabe.Equals(ma.GetKuerzel(), StringComparison.InvariantCultureIgnoreCase))
-                             {
-                                 Console.WriteLine("\n");
-                                 ma.WriteAllgemeineInfo();
-                             }
-                             index += 1;
-                         }
-
-                         else break;
-                     } */
                 }
+
+                if (eingabe == 2)
+                {
+                    Console.WriteLine("Please enter Kuerzel");
+                    Kuerzel = Console.ReadLine();
+                    foreach (MitarbeiterIn ma in mitarbeiterInnen)
+                    {
+                        //Console.WriteLine(ma.Name);
+                        if (Kuerzel.Equals(ma.GetKuerzel(), StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            Console.WriteLine("\n");
+                            ma.WriteAllgemeineInfo();
+                        }
+                    }
+                }
+
+
+                if (eingabe.Equals(3))
+                {
+                    break;
+                }
+
+                //else
+                //{
+                //    foreach (MitarbeiterIn ma in mitarbeiterInnen)
+                //    {
+                //         //Console.WriteLine(ma.Name);
+                //        if (eingabe.Equals(ma.GetName(), StringComparison.InvariantCultureIgnoreCase) || eingabe.Equals(ma.GetKuerzel(), StringComparison.InvariantCultureIgnoreCase)) 
+                //        {
+                //            Console.WriteLine("\n");
+                //            ma.WriteAllgemeineInfo();
+                //        }
+                //    }
+                //}
             } while (true);
         }
     }
