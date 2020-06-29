@@ -247,13 +247,44 @@ namespace FswMobileDeviceMgmt
                 {
                     foreach (MitarbeiterIn ma in mitarbeiterInnen)
                     {
-                        // Console.WriteLine(ma.Name);
+                         //Console.WriteLine(ma.Name);
                         if (eingabe.Equals(ma.GetName(), StringComparison.InvariantCultureIgnoreCase) || eingabe.Equals(ma.GetKuerzel(), StringComparison.InvariantCultureIgnoreCase)) 
                         {
                             Console.WriteLine("\n");
                             ma.WriteAllgemeineInfo();
                         }
                     }
+
+
+                    //for (int index = 0; index < mitarbeiterInnen.Count; index += 1)
+                    //{
+                    //    var ma = mitarbeiterInnen[index];
+                    //    // Console.WriteLine(ma.Name);
+                    //    if (eingabe.Equals(ma.GetName(), StringComparison.InvariantCultureIgnoreCase) || eingabe.Equals(ma.GetKuerzel(), StringComparison.InvariantCultureIgnoreCase))
+                    //    {
+                    //        Console.WriteLine("\n");
+                    //        ma.WriteAllgemeineInfo();
+                    //    }
+                    //}
+
+                    /* int index = 100;
+                     while (index < mitarbeiterInnen.Count)
+                     {
+                         if (index < mitarbeiterInnen.Count)
+                         {
+
+                             var ma = mitarbeiterInnen[index];
+                             // Console.WriteLine(ma.Name);
+                             if (eingabe.Equals(ma.GetName(), StringComparison.InvariantCultureIgnoreCase) || eingabe.Equals(ma.GetKuerzel(), StringComparison.InvariantCultureIgnoreCase))
+                             {
+                                 Console.WriteLine("\n");
+                                 ma.WriteAllgemeineInfo();
+                             }
+                             index += 1;
+                         }
+
+                         else break;
+                     } */
                 }
             } while (true);
         }
