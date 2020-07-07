@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.Reflection.PortableExecutable;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 
@@ -32,6 +33,14 @@ namespace FswMobileDeviceMgmt
             }*/
         }
 
+        //overloaded constructor
+        public MitarbeiterIn(string MaKuerzel, Person MaPerson)
+        {
+            this.Kuerzel = MaKuerzel;
+            this.MaPerson = MaPerson;
+        }
+
+
         public string GetName()
         {
             return MaPerson.GetPersonName();
@@ -42,6 +51,19 @@ namespace FswMobileDeviceMgmt
             return Kuerzel;
         }
 
+
+        // overloading signature - "MASetPersonName(string)"
+        public void MASetPersonName(string yourName)
+        {
+            MaPerson.SetPersonName(yourName);
+        }
+
+        // overloading signature - "MASetPersonName(string, string)"
+        public void MaSetPersonName(string firstname, string secondname)
+        {
+            string fullname = firstname + " " +secondname;
+            MaPerson.SetPersonName(fullname);
+        }
 
         public void WriteAllgemeineInfo()
         {

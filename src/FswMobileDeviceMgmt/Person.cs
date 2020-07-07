@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace FswMobileDeviceMgmt
@@ -38,6 +39,11 @@ namespace FswMobileDeviceMgmt
         public string GetPersonName()
         {
             return Name;
+        }
+
+        public void SetPersonName(string yourName)
+        {
+            Name = yourName;
         }
 
     }
