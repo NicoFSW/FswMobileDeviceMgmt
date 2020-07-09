@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using System.Runtime.InteropServices.ComTypes;
 
 namespace FswMobileDeviceMgmt
@@ -227,9 +228,7 @@ namespace FswMobileDeviceMgmt
                 );
 
             MitarbeiterIn plu = mitarbeiterInnen[2];
-            plu.MASetPersonName("Martin Ludwig");
-
-            plu.MaSetPersonName("Großes", "Loch");
+            plu.MASetPersonName("");
 
 
             mitarbeiterInnen.Add

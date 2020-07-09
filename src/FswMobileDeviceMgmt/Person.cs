@@ -7,26 +7,26 @@ namespace FswMobileDeviceMgmt
 {
     public class Person
     {
-        private string Name;
-        private string Alter;
-        private Adresse PeAdresse;
+        private string _name;
+        private string _alter;
+        private Adresse _peAdresse;
 
         //Constructor
 
         public Person ( string Name, string Alter, Adresse PeAdresse )
         {
-            this.Name = Name;
-            this.Alter = Alter;
-            this.PeAdresse = PeAdresse;
+            this._name = Name;
+            this._alter = Alter;
+            this._peAdresse = PeAdresse;
         }
 
         public void WritePersonInfo()
         {
-            Console.WriteLine("Name: " + Name + "\nAlter: " + Alter );
+            Console.WriteLine("Name: " + _name + "\nAlter: " + _alter );
 
-            if (PeAdresse != null)
+            if (_peAdresse != null)
             {
-                PeAdresse.WriteAdresseInfo();
+                _peAdresse.WriteAdresseInfo();
             }
 
             else 
@@ -38,12 +38,19 @@ namespace FswMobileDeviceMgmt
 
         public string GetPersonName()
         {
-            return Name;
+            return _name;
         }
 
         public void SetPersonName(string yourName)
         {
-            Name = yourName;
+            if (yourName.Length > 3)
+            {
+                _name = yourName; 
+            }
+            else
+            {
+                throw new Exception("new name is too short");
+            }
         }
 
     }

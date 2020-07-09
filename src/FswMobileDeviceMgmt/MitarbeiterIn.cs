@@ -12,7 +12,7 @@ namespace FswMobileDeviceMgmt
         private string Kuerzel;
         private List<Telefon> MaTelefone;
         private List<Computer> MaComputer;
-        private Person MaPerson;
+        public Person MaPerson;
 
         // constructor
         public MitarbeiterIn( string MaKuerzel, Person MaPerson, List<Telefon> MaTelefone, List<Computer> MaComputer )
@@ -55,7 +55,14 @@ namespace FswMobileDeviceMgmt
         // overloading signature - "MASetPersonName(string)"
         public void MASetPersonName(string yourName)
         {
-            MaPerson.SetPersonName(yourName);
+            try
+            {
+                MaPerson.SetPersonName(yourName);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         // overloading signature - "MASetPersonName(string, string)"
