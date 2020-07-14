@@ -10,9 +10,162 @@ namespace FswMobileDeviceMgmt
         static void Main(string[] args)
         {
 
+            //Initialisierung
+            List<MitarbeiterIn> mitarbeiterInnen = InitialiseMitarbeiterInnnen();
+            List<Fuehrungskraft> fuehrungskraefte = InitialiseFuehrungskraft();
+            //Eingabe und Suche
+            do
+            {
+
+                Console.WriteLine("\nPlease press 1 for entering the name\nPlease press 2 for entering the Kuerzel\nPlease press 3 for EXIT\n");
+
+                int eingabe = ReadEingabe();
+
+                if (eingabe == 1)
+                {
+                    Console.WriteLine("Please enter full Name");
+                    string Name = Console.ReadLine();
+                    foreach (MitarbeiterIn ma in mitarbeiterInnen)
+                    {
+                        //Console.WriteLine(ma.Name);
+                        if (Name.Equals(ma.GetName(), StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            Console.WriteLine("\n");
+                            ma.WriteAllgemeineInfo();
+                            break;
+                        }
+                    }
+                    foreach (Fuehrungskraft fk in fuehrungskraefte)
+                    {
+                        //Console.WriteLine(ma.Name);
+                        if (Name.Equals(fk.GetName(), StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            Console.WriteLine("\n");
+                            fk.WriteAllgemeineInfo();
+                            break;
+                        }
+                    }
+                }
+
+                else if (eingabe == 2)
+                {
+                    Console.WriteLine("Please enter Kuerzel");
+                    string Kuerzel1 = Console.ReadLine();
+                    foreach (MitarbeiterIn ma in mitarbeiterInnen)
+                    {
+                        //Console.WriteLine(ma.Name);
+                        if (Kuerzel1.Equals(ma.Kuerzel, StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            Console.WriteLine("\n");
+                            ma.WriteAllgemeineInfo();
+                        }
+                    }
+                    foreach (Fuehrungskraft fk in fuehrungskraefte)
+                    {
+                        //Console.WriteLine(ma.Name);
+                        if (Kuerzel1.Equals(fk.Kuerzel, StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            Console.WriteLine("\n");
+                            fk.WriteAllgemeineInfo();
+                        }
+                    }
+                }
+
+                else if (eingabe.Equals(3))
+                {
+                    break;
+                }
+            } while (true);
+        }
+
+
+        private static int ReadEingabe()
+        {
+            int eingabe = 0;
+
+            try
+            {
+                eingabe = Convert.ToInt32(Console.ReadLine());
+                //throw new Exception("RIP");
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("Please Type in a Number" + "\n" + e.Message);
+            }
+            catch (OverflowException e)
+            {
+                Console.WriteLine("Please Type in a Number that is bigger than -2,147,483,648 and smaller than 2,147,483,647" + "\n" + e.Message);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("General Error 404");
+            }
+            finally
+            {
+                Console.WriteLine("FINALLY Block");
+            }
+
+            return eingabe;
+        }
+        
+        private static List<Fuehrungskraft> InitialiseFuehrungskraft()
+        {
+            List<Fuehrungskraft> fuehrungskraefte = new List<Fuehrungskraft>();
+            // add new MitarbeiterIn
+            fuehrungskraefte.Add
+                (
+                    new Fuehrungskraft
+                    (
+                        "ifswtiv",
+                        "FK1",
+                        new Person
+                        (
+                            "Thomas der IV.",
+                            "80",
+                            new Adresse
+                                (
+                                    "Niederösterreich",
+                                    "08",
+                                    "Königsstrasse 4"
+                                )
+                        ),
+
+                        new List<Telefon>
+                            {
+                                new Telefon
+                                    (
+                                        "FestNetzTelefon",
+                                        "/",
+                                        "02 1123 444"
+                                    ),
+                                new Telefon
+                                    (
+                                        "MobilTelefon",
+                                        "IphoneSE",
+                                        "0650 1123 444"
+                                    )
+                            },
+
+                        new List<Computer>
+                            {
+                                new Computer
+                                    (
+                                        "Notebook",
+                                        "HP EliteBook",
+                                        "204564"
+                                    ),
+                            }
+                    )
+                );
+            return fuehrungskraefte;
+        }
+        private static List<MitarbeiterIn> InitialiseMitarbeiterInnnen()
+        {
             List<MitarbeiterIn> mitarbeiterInnen = new List<MitarbeiterIn>();
+            
 
 
+            // add new MitarbeiterIn
             string MyMAKuerzel = "ifswnsc";
             string MyMAName = "nikole schumacher";
             string MyMAALter = "45";
@@ -23,25 +176,22 @@ namespace FswMobileDeviceMgmt
 
             Adresse MyMAAdresse = new Adresse
                 (
-                MyMAStadt,
-                MyMABezirk,
-                MyMAStrasse
+                    MyMAStadt,
+                    MyMABezirk,
+                    MyMAStrasse
                 );
-            Person PersonName = new Person
+            Person MyMAPersonName = new Person
             (
-             MyMAName,
-             MyMAALter,
-             MyMAAdresse
+                 MyMAName,
+                 MyMAALter,
+                 MyMAAdresse
             );
-            
-
-
 
             MitarbeiterIn MyMA = new MitarbeiterIn
                      (
                         MyMAKuerzel,
-                        PersonName,
-                
+                        MyMAPersonName,
+
 
                         new List<Telefon>
                             {
@@ -83,6 +233,10 @@ namespace FswMobileDeviceMgmt
                     MyMA
                  );
 
+
+
+
+            // add new MitarbeiterIn
             mitarbeiterInnen.Add
                 (
                     new MitarbeiterIn
@@ -92,6 +246,7 @@ namespace FswMobileDeviceMgmt
                             (
                                 "Wolfgang Hans",
                                 "54",
+                                "Männlich",
 
                                  new Adresse
                                     (
@@ -122,12 +277,13 @@ namespace FswMobileDeviceMgmt
                                 )
                         },
                         new List<Computer>
-                            {
-                            }
+                        {
+                        }
                     )
                 );
 
 
+            // add new MitarbeiterIn
             mitarbeiterInnen.Add
                 (
                 new MitarbeiterIn
@@ -137,7 +293,7 @@ namespace FswMobileDeviceMgmt
                         (
                             "Peter Ludwig",
                             "36",
-                            
+
                             new Adresse
                                 (
                                     "NiederÖsterreich",
@@ -174,6 +330,7 @@ namespace FswMobileDeviceMgmt
                 );
 
 
+            // add new MitarbeiterIn
             mitarbeiterInnen.Add
                 (
                     new MitarbeiterIn
@@ -227,10 +384,15 @@ namespace FswMobileDeviceMgmt
                     )
                 );
 
-            MitarbeiterIn plu = mitarbeiterInnen[2];
-            plu.MASetPersonName("");
+            
 
 
+            // change MitarbeiterIn ifswplu
+            MitarbeiterIn ifswplu = mitarbeiterInnen[2];
+            ifswplu.MASetPersonName("");
+
+
+            // add new MitarbeiterIn
             mitarbeiterInnen.Add
                (
                    new MitarbeiterIn
@@ -248,80 +410,12 @@ namespace FswMobileDeviceMgmt
                );
 
 
-
-            //eingabe
-            int eingabe;
-            string Name, Kuerzel;
-            
-            do
-            {
-
-                Console.WriteLine("\nPlease press 1 for entering the name\nPlease press 2 for entering the Kuerzel\nPlease press 3 for EXIT\n");
-
-                eingabe = 0;
-
-                try
-                {
-                    eingabe = Convert.ToInt32(Console.ReadLine());
-                    //throw new Exception("RIP");
-                }
-                catch(FormatException e)
-                {
-                    Console.WriteLine("Please Type in a Number" + "\n" + e.Message);
-                }
-                catch (OverflowException e)
-                {
-                    Console.WriteLine("Please Type in a Number that is bigger than -2,147,483,648 and smaller than 2,147,483,647" + "\n" + e.Message);
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("General Error 404");
-                }
-                finally
-                {
-                    Console.WriteLine("FINALLY Block COCK");
-                }
-                
+            // change MitarbeiterIn ifswplu
+            MitarbeiterIn ifswasa = mitarbeiterInnen[3];
+            ifswasa.Kuerzel = "ha";
 
 
-
-                if (eingabe == 1)
-                {
-                    Console.WriteLine("Please enter full Name");
-                    Name = Console.ReadLine();
-                    foreach (MitarbeiterIn ma in mitarbeiterInnen)
-                    {
-                        //Console.WriteLine(ma.Name);
-                        if (Name.Equals(ma.GetName(), StringComparison.InvariantCultureIgnoreCase))
-                        {
-                            Console.WriteLine("\n");
-                            ma.WriteAllgemeineInfo();
-                            break;
-                        }
-                    }
-                }
-
-                else if (eingabe == 2)
-                {
-                    Console.WriteLine("Please enter Kuerzel");
-                    Kuerzel = Console.ReadLine();
-                    foreach (MitarbeiterIn ma in mitarbeiterInnen)
-                    {
-                        //Console.WriteLine(ma.Name);
-                        if (Kuerzel.Equals(ma.GetKuerzel(), StringComparison.InvariantCultureIgnoreCase))
-                        {
-                            Console.WriteLine("\n");
-                            ma.WriteAllgemeineInfo();
-                        }
-                    }
-                }
-
-
-                else if (eingabe.Equals(3))
-                {
-                    break;
-                }
-            } while (true);
+            return mitarbeiterInnen;
         }
     }
 }

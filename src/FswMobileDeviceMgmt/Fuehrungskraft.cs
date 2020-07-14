@@ -7,16 +7,18 @@ using System.Text;
 
 namespace FswMobileDeviceMgmt
 {
-    public class MitarbeiterIn
+    public class Fuehrungskraft
     {
+        private string _fkLevel;
         private string _kuerzel;
         private List<Telefon> _maTelefone;
         private List<Computer> _maComputer;
         private Person _maPerson;
 
         // constructor
-        public MitarbeiterIn( string MaKuerzel, Person MaPerson, List<Telefon> MaTelefone, List<Computer> MaComputer )
+        public Fuehrungskraft(string MaKuerzel, string FKLevel, Person MaPerson, List<Telefon> MaTelefone, List<Computer> MaComputer)
         {
+            this._fkLevel = FKLevel;
             this._kuerzel = MaKuerzel;
             this._maPerson = MaPerson;
             this._maTelefone = MaTelefone;
@@ -34,7 +36,7 @@ namespace FswMobileDeviceMgmt
         }
 
         //overloaded constructor
-        public MitarbeiterIn(string MaKuerzel, Person MaPerson)
+        public Fuehrungskraft(string MaKuerzel, Person MaPerson)
         {
             this._kuerzel = MaKuerzel;
             this._maPerson = MaPerson;
@@ -94,7 +96,7 @@ namespace FswMobileDeviceMgmt
             {
                 _maPerson.SetPersonName(yourName);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
@@ -105,13 +107,14 @@ namespace FswMobileDeviceMgmt
         // overloading signature - "MASetPersonName(string, string)"
         public void MaSetPersonName(string firstname, string secondname)
         {
-            string fullname = firstname + " " +secondname;
+            string fullname = firstname + " " + secondname;
             _maPerson.SetPersonName(fullname);
         }
 
         public void WriteAllgemeineInfo()
         {
             Console.WriteLine("Kuerzel: " + _kuerzel);
+            Console.WriteLine("FK Level: " + _fkLevel);
             _maPerson.WritePersonInfo();
             foreach (Telefon TEL in _maTelefone)
             {

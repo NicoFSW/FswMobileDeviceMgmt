@@ -14,10 +14,10 @@ namespace FswMobileDeviceMgmt
 
         //constructor
 
-        public Adresse(string x, string y, string Strasse)
+        public Adresse(string Bundesland, string Bezirk, string Strasse)
         {
-            this.BundesLand = x;
-            this.Bezirk = y;
+            this.BundesLand = Bundesland;
+            this.Bezirk = Bezirk;
             this.Strasse = Strasse;
         }
 
