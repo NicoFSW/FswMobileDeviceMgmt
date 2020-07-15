@@ -9,10 +9,10 @@ namespace FswMobileDeviceMgmt
 {
     public class MitarbeiterIn
     {
-        private string _kuerzel;
-        private List<Telefon> _maTelefone;
-        private List<Computer> _maComputer;
-        private Person _maPerson;
+        protected string _kuerzel;
+        protected List<Telefon> _maTelefone;
+        protected List<Computer> _maComputer;
+        protected Person _maPerson;
 
         // constructor
         public MitarbeiterIn( string MaKuerzel, Person MaPerson, List<Telefon> MaTelefone, List<Computer> MaComputer )
@@ -109,7 +109,7 @@ namespace FswMobileDeviceMgmt
             _maPerson.SetPersonName(fullname);
         }
 
-        public void WriteAllgemeineInfo()
+        public virtual void WriteAllgemeineInfo()
         {
             Console.WriteLine("Kuerzel: " + _kuerzel);
             _maPerson.WritePersonInfo();
