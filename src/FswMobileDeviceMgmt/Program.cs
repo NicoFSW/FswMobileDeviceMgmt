@@ -12,7 +12,7 @@ namespace FswMobileDeviceMgmt
 
             //Initialisierung
             List<MitarbeiterIn> mitarbeiterInnen = InitialiseMitarbeiterInnnen();
-            List<Fuehrungskraft> fuehrungskraefte = InitialiseFuehrungskraft();
+
             //Eingabe und Suche
             do
             {
@@ -35,16 +35,6 @@ namespace FswMobileDeviceMgmt
                             break;
                         }
                     }
-                    foreach (Fuehrungskraft fk in fuehrungskraefte)
-                    {
-                        //Console.WriteLine(ma.Name);
-                        if (Name.Equals(fk.GetName(), StringComparison.InvariantCultureIgnoreCase))
-                        {
-                            Console.WriteLine("\n");
-                            fk.WriteAllgemeineInfo();
-                            break;
-                        }
-                    }
                 }
 
                 else if (eingabe == 2)
@@ -58,15 +48,6 @@ namespace FswMobileDeviceMgmt
                         {
                             Console.WriteLine("\n");
                             ma.WriteAllgemeineInfo();
-                        }
-                    }
-                    foreach (Fuehrungskraft fk in fuehrungskraefte)
-                    {
-                        //Console.WriteLine(ma.Name);
-                        if (Kuerzel1.Equals(fk.Kuerzel, StringComparison.InvariantCultureIgnoreCase))
-                        {
-                            Console.WriteLine("\n");
-                            fk.WriteAllgemeineInfo();
                         }
                     }
                 }
@@ -108,57 +89,7 @@ namespace FswMobileDeviceMgmt
             return eingabe;
         }
         
-        private static List<Fuehrungskraft> InitialiseFuehrungskraft()
-        {
-            List<Fuehrungskraft> fuehrungskraefte = new List<Fuehrungskraft>();
-            // add new MitarbeiterIn
-            fuehrungskraefte.Add
-                (
-                    new Fuehrungskraft
-                    (
-                        "ifswtiv",
-                        "FK1",
-                        new Person
-                        (
-                            "Thomas der IV.",
-                            "80",
-                            new Adresse
-                                (
-                                    "Niederösterreich",
-                                    "08",
-                                    "Königsstrasse 4"
-                                )
-                        ),
-
-                        new List<Telefon>
-                            {
-                                new Telefon
-                                    (
-                                        "FestNetzTelefon",
-                                        "/",
-                                        "02 1123 444"
-                                    ),
-                                new Telefon
-                                    (
-                                        "MobilTelefon",
-                                        "IphoneSE",
-                                        "0650 1123 444"
-                                    )
-                            },
-
-                        new List<Computer>
-                            {
-                                new Computer
-                                    (
-                                        "Notebook",
-                                        "HP EliteBook",
-                                        "204564"
-                                    ),
-                            }
-                    )
-                );
-            return fuehrungskraefte;
-        }
+        
         private static List<MitarbeiterIn> InitialiseMitarbeiterInnnen()
         {
             List<MitarbeiterIn> mitarbeiterInnen = new List<MitarbeiterIn>();
@@ -384,7 +315,55 @@ namespace FswMobileDeviceMgmt
                     )
                 );
 
-            
+
+            // add new Fuehrungskraft => POLYMORFISMUS
+            mitarbeiterInnen.Add
+            (
+                    new Fuehrungskraft
+                    (
+                        "ifswtiv",
+                        "FK1",
+                        new Person
+                        (
+                            "Thomas der IV.",
+                            "80",
+                            new Adresse
+                                (
+                                    "Niederösterreich",
+                                    "08",
+                                    "Königsstrasse 4"
+                                )
+                        ),
+
+                        new List<Telefon>
+                            {
+                                new Telefon
+                                    (
+                                        "FestNetzTelefon",
+                                        "/",
+                                        "02 1123 444"
+                                    ),
+                                new Telefon
+                                    (
+                                        "MobilTelefon",
+                                        "IphoneSE",
+                                        "0650 1123 444"
+                                    )
+                            },
+
+                        new List<Computer>
+                            {
+                                new Computer
+                                    (
+                                        "Notebook",
+                                        "HP EliteBook",
+                                        "204564"
+                                    ),
+                            }
+                    )
+                );
+
+
 
 
             // change MitarbeiterIn ifswplu
