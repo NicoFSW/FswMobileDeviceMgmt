@@ -366,6 +366,94 @@ namespace FswMobileDeviceMgmt
 
 
 
+            try
+            {
+                mitarbeiterInnen.Add
+                (
+                        new OdwMitarbeiterIn
+                        (
+                            "ixxxbul",
+                            new Person
+                            (
+                                "Birgitt Ulricke",
+                                "53",
+                                new Adresse
+                                    (
+                                        "Burgenland",
+                                        "01",
+                                        "Alteomastraße 3"
+                                    )
+                            ),
+
+                            new List<Telefon>
+                                {
+                                new Telefon
+                                    (
+                                        "FestNetzTelefon",
+                                        "/",
+                                        "02 1123 444"
+                                    ),
+                                },
+
+                            new List<Computer>
+                                {
+                                new Computer
+                                    (
+                                        "Notebook",
+                                        "Dell",
+                                        "204221"
+                                    ),
+                                }
+                        )
+                    );
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            mitarbeiterInnen.Add
+            (
+                    new OdwMitarbeiterIn
+                    (
+                        "iodwmhe",
+                        new Person
+                        (
+                            "Manuela Heinricke",
+                            "53",
+                            new Adresse
+                                (
+                                    "Burgenland",
+                                    "01",
+                                    "Alteomastraße 3"
+                                )
+                        ),
+
+                        new List<Telefon>
+                            {
+                                new Telefon
+                                    (
+                                        "FestNetzTelefon",
+                                        "/",
+                                        "02 1123 444"
+                                    ),
+                            },
+
+                        new List<Computer>
+                            {
+                                new Computer
+                                    (
+                                        "Notebook",
+                                        "Dell",
+                                        "204221"
+                                    ),
+                            }
+                    )
+                );
+
+
+
+
             // change MitarbeiterIn ifswplu
             MitarbeiterIn ifswplu = mitarbeiterInnen[2];
             ifswplu.MASetPersonName("");
